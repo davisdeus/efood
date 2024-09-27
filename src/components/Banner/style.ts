@@ -24,6 +24,7 @@ export const ImgContainer = styled.div`
   }
 
   h3 {
+    z-index: 1;
     position: absolute;
     left: 171px;
     top: 60px;
@@ -31,6 +32,7 @@ export const ImgContainer = styled.div`
   }
 
   h2 {
+    z-index: 1;
     position: absolute;
     left: 171px;
     bottom: 24px;

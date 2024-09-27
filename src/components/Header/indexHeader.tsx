@@ -2,11 +2,12 @@ import logo from '../../assets/emages/logo.png'
 import { Div, LinkCart } from './styles'
 import carrinho from '../../assets/emages/carrinhoR.png'
 import { HeaderBar2 } from '../../styles/stylesGlobal'
+import { Link } from 'react-router-dom'
 
 export const Header2 = () => (
   <HeaderBar2>
     <div className="contaiberHeader">
-      <LinkCart href="/">Restaurantes</LinkCart>
+      <Link to="/">Restaurantes</Link>
       <Div>
         <img src={logo} alt="food" />
       </Div>
