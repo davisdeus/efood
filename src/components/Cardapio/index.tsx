@@ -41,7 +41,7 @@ const Cardapio = ({ title, description, infos, image, button }: Props) => (
         <Descricao>{description}</Descricao>
         <AddCartButton
           type="link"
-          to="/japonesa"
+          to="/product"
           title="Clique e saiba mais sobre nosso cardapio"
         >
           {button}

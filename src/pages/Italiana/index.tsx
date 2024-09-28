@@ -5,7 +5,7 @@ import japonesa02 from '../../assets/emages/japonesa/japonesa02.jpg'
 import japonesa03 from '../../assets/emages/japonesa/japonesa03.jpg'
 import japonesa04 from '../../assets/emages/japonesa/japonesa04.jpg'
 import japonesa05 from '../../assets/emages/japonesa/japonesa05.jpg'
-import Banner from '../../components/Banner'
+import Banner from '../../components/Hero'
 import { Header2 } from '../../components/Header/indexHeader'
 
 const EmOferta: Opcoes[] = [

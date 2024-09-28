@@ -20,10 +20,11 @@ export const ImgContainer = styled.div`
     height: 100%;
     left: 0;
     top: 0;
-    opacity: 0.3;
+    opacity: 0.7;
   }
 
   h3 {
+    z-index: 1;
     position: absolute;
     left: 171px;
     top: 60px;
@@ -31,6 +32,7 @@ export const ImgContainer = styled.div`
   }
 
   h2 {
+    z-index: 1;
     position: absolute;
     left: 171px;
     bottom: 24px;
