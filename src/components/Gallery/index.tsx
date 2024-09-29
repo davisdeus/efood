@@ -17,8 +17,9 @@ import {
   ModalContent,
 } from './styles'
 import { ButtonAdd } from '../Section/styles'
+import { useState } from 'react'
 
-type GalleryItems = {
+interface GalleryItems {
   type: 'image'
   url: string
 }
@@ -54,12 +55,42 @@ type Props = {
   name: string
 }
 
+interface ModalState extends GalleryItems {
+  // type: 'image' url: string
+  // não é precisso adicionalos pois estão sendo puchados altomaticamente
+
+  isVisible: boolean
+}
+
 const Gallery = ({ name }: Props) => {
+  const [modal, seModal] = useState<ModalState>({
+    isVisible: false,
+    type: 'image',
+    url: '',
+  })
+
+  const closeModal = () => {
+    seModal({
+      isVisible: false,
+      type: 'image',
+      url: '',
+    })
+  }
+
   return (
     <>
       <List className="container">
         {mock.map((media, index) => (
-          <ListItem key={media.url}>
+          <ListItem
+            key={media.url}
+            onClick={() => {
+              seModal({
+                isVisible: true,
+                type: media.type,
+                url: media.url,
+              })
+            }}
+          >
             <ImgContainer>
               <Action>
                 <p>Clique para ver mais detalhes</p>
@@ -80,13 +111,19 @@ const Gallery = ({ name }: Props) => {
           </ListItem>
         ))}
       </List>
-      <Modal>
+      <Modal className={modal.isVisible ? 'visible' : ''}>
         <ModalContent className="container">
-          <img src={pizza01italiana} />
+          <img src={modal.url} />
           <ModalDescription>
             <header>
               <h4>{name}</h4>
-              <img src={close} alt="Icone de fechar" />
+              <img
+                src={close}
+                alt="Icone de fechar"
+                onClick={() => {
+                  closeModal()
+                }}
+              />
             </header>
             <p>
               A pizza Margherita é uma pizza clássica da culinária italiana,
@@ -103,7 +140,12 @@ const Gallery = ({ name }: Props) => {
             <ButtonAdd>Adicionar ao carrinho</ButtonAdd>
           </ModalDescription>
         </ModalContent>
-        <div className="overlay"></div>
+        <div
+          onClick={() => {
+            closeModal()
+          }}
+          className="overlay"
+        ></div>
       </Modal>
     </>
   )
