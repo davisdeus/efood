@@ -7,6 +7,7 @@ export const ImgContainer = styled.div`
   height: 338px;
   width: 100%;
   color: ${cores.branco};
+  margin-bottom: 64px;
 
   background-repeat: no-repeat;
   background-position: center;

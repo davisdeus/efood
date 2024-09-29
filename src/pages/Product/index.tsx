@@ -7,7 +7,7 @@ const Product = () => (
     <div className="maxContainer">
       <Header2 />
       <Hero />
-      <Gallery />
+      <Gallery name="Pizza Marguerita" />
     </div>
   </>
 )
