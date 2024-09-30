@@ -9,6 +9,7 @@ export const cores = {
   cinza: '#A3A3A3',
   beje: '#FFEBD9',
   preto: '#000',
+  Seashell: '#FFF8F2',
 }
 
 export const GlobalStyle = createGlobalStyle`
@@ -26,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
   .maxContainer {
     max-width: 1366px;
     height: 1650px;
-    background-color: ${cores.rosaSalmao};
+    background-color: ${cores.Seashell};
     margin: 0 auto;
   }
   .container {

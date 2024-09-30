@@ -12,43 +12,48 @@ import estrela from '../../assets/emages/estrela.png'
 import Tag from '../Tag'
 
 type Props = {
-  title: string
-  description: string
+  id: number
+  avaliacao: string
+  descricao: string
+  capa: string
+  nome: string
   infos: string[]
-  image: string
-  button: string
+  titulo: string
+  tipo: string
 }
 
-const Cardapio = ({ title, description, infos, image, button }: Props) => (
-  <CardContainer>
-    <Card>
-      <img src={image} title={title} />
-      <Infos>
-        {infos.map((info) => (
-          <Tag key={info} size="big">
-            {info}
-          </Tag>
-        ))}
-      </Infos>
-      <CardDados>
-        <ContainerPontuacao>
-          <h3>{title}</h3>
-          <ClassificaoPorEstrela>
-            <h3>4.9</h3>
-            <img src={estrela} />
-          </ClassificaoPorEstrela>
-        </ContainerPontuacao>
-        <Descricao>{description}</Descricao>
-        <AddCartButton
-          type="link"
-          to="/product"
-          title="Clique e saiba mais sobre nosso cardapio"
-        >
-          {button}
-        </AddCartButton>
-      </CardDados>
-    </Card>
-  </CardContainer>
-)
+const Cardapio = ({ id, avaliacao, descricao, capa, infos, titulo }: Props) => {
+  return (
+    <CardContainer>
+      <Card>
+        <img src={capa} alt="foto do restaurante" />
+        <Infos>
+          {infos.map((info) => (
+            <Tag key={info} size="big">
+              {info}
+            </Tag>
+          ))}
+        </Infos>
+        <CardDados>
+          <ContainerPontuacao>
+            <h3>{titulo}</h3>
+            <ClassificaoPorEstrela>
+              <h3>{avaliacao}</h3>
+              <img src={estrela} />
+            </ClassificaoPorEstrela>
+          </ContainerPontuacao>
+          <Descricao>{descricao}</Descricao>
+          <AddCartButton
+            type="link"
+            to={`/product/${id}`}
+            title="Clique e saiba mais sobre nosso cardapio"
+          >
+            Saiba mais
+          </AddCartButton>
+        </CardDados>
+      </Card>
+    </CardContainer>
+  )
+}
 
 export default Cardapio

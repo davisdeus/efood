@@ -10,10 +10,12 @@ export const CardContainer = styled.div`
 export const Card = styled.div`
   position: relative;
   margin-top: 10px;
+  max-width: 1024px;
+  max-height: 1290px;
 
   img {
     width: 100%;
-    height: 50%;
+    height: 200px;
   }
 `
 

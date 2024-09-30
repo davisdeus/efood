@@ -9,7 +9,7 @@ export const Container = styled.section<ContainerProps>`
   padding: 20px;
 `
 
-export const List = styled.div<{ columns: number }>`
+export const List = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;

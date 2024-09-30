@@ -1,13 +1,8 @@
-import pizza01italiana from '../../assets/emages/italiana/pizza01italiana.png'
-import pizza02italiana from '../../assets/emages/italiana/pizza02italiana.jpg'
-import pizza03italiana from '../../assets/emages/italiana/pizza03italiana.jpg'
-import massa01italiana from '../../assets/emages/italiana/massa01italiana.png'
-import massa02italiana from '../../assets/emages/italiana/massa02italiana.jpg'
-import massa03italiana from '../../assets/emages/italiana/massa03italiana.jpg'
-import close from '../../assets/emages/close.png'
-import { ModalDescription } from './styles'
+import { useState } from 'react'
 
 import Section from '../../components/Section'
+
+import { ModalDescription } from './styles'
 import {
   Action,
   ImgContainer,
@@ -17,12 +12,15 @@ import {
   ModalContent,
 } from './styles'
 import { ButtonAdd } from '../Section/styles'
-import { useState } from 'react'
+import close from '../../assets/emages/close.png'
+import { GalleryItems } from '../../pages/Home'
 
-interface GalleryItems {
-  type: 'image'
-  url: string
-}
+import pizza01italiana from '../../assets/emages/italiana/pizza01italiana.png'
+import pizza02italiana from '../../assets/emages/italiana/pizza02italiana.jpg'
+import pizza03italiana from '../../assets/emages/italiana/pizza03italiana.jpg'
+import massa01italiana from '../../assets/emages/italiana/massa01italiana.png'
+import massa02italiana from '../../assets/emages/italiana/massa02italiana.jpg'
+import massa03italiana from '../../assets/emages/italiana/massa03italiana.jpg'
 
 const mock: GalleryItems[] = [
   {
@@ -63,14 +61,14 @@ interface ModalState extends GalleryItems {
 }
 
 const Gallery = ({ name }: Props) => {
-  const [modal, seModal] = useState<ModalState>({
+  const [modal, setModal] = useState<ModalState>({
     isVisible: false,
     type: 'image',
     url: '',
   })
 
   const closeModal = () => {
-    seModal({
+    setModal({
       isVisible: false,
       type: 'image',
       url: '',
@@ -84,7 +82,7 @@ const Gallery = ({ name }: Props) => {
           <ListItem
             key={media.url}
             onClick={() => {
-              seModal({
+              setModal({
                 isVisible: true,
                 type: media.type,
                 url: media.url,
