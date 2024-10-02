@@ -95,20 +95,17 @@ const Gallery = ({ name }: Props) => {
               </Action>
               <img src={media.url} alt={`Mídia ${index + 1} do ${name}`} />
             </ImgContainer>
-            <Section
-              button="Mais detalhes"
-              title="Pizza Marguerita"
-              background="#E66767"
-            >
+            <Section button="Mais detalhes" title={name} background="#E66767">
               <p>
                 A clássica Marguerita: molho de tomate suculento, mussarela
                 derretida, manjericão fresco e um toque de azeite. Sabor e
-                simplicidade! 🍕
+                simplicidade!
               </p>
             </Section>
           </ListItem>
         ))}
       </List>
+
       <Modal className={modal.isVisible ? 'visible' : ''}>
         <ModalContent className="container">
           <img src={modal.url} />

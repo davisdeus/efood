@@ -6,15 +6,12 @@ import { Link } from 'react-router-dom'
 
 export const Header2 = () => (
   <HeaderBar2>
-    <div className="contaiberHeader">
+    <div className="containerHeader">
       <Link to="/">Restaurantes</Link>
       <Div>
         <img src={logo} alt="food" />
       </Div>
-      <LinkCart href="#">
-        0 produtos(s) no
-        <img src={carrinho} alt="Carrinho" />
-      </LinkCart>
+      <LinkCart href="#">0 produtos(s) no Carrinho</LinkCart>
     </div>
   </HeaderBar2>
 )

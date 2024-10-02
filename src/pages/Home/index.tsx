@@ -17,14 +17,19 @@ export interface Opcoes extends GalleryItems {
   avaliacao: string
   descricao: string
   capa: string
-  foto: string
-  preco: number
-  nome: string
-  porcao: string
   button: string
   infos: string[]
   titulo: string
   restaurantes: GalleryItems[]
+
+  cardapio: {
+    foto: string
+    preco: number
+    id: number
+    nome: string
+    descricao: string
+    porcao: string
+  }
 }
 
 const Home = () => {

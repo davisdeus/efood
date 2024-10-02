@@ -11,20 +11,25 @@ export const Card = styled.div`
   position: relative;
   margin-top: 10px;
   max-width: 1024px;
-  max-height: 1290px;
+  width: 472px;
+  height: 398px;
+
+  border-left: 2px solid ${cores.rosa};
+  border-right: 2px solid ${cores.rosa};
+  border-bottom: 2px solid ${cores.rosa};
+  background-color: ${cores.branco};
+  color: ${cores.rosa};
 
   img {
-    width: 100%;
-    height: 200px;
+    width: 472px;
+    height: 217px;
   }
 `
 
 export const CardDados = styled.div`
-  background-color: ${cores.branco};
-  color: ${cores.rosa};
-  border: 2px solid ${cores.rosa};
-  height: 190px;
+  height: 181px;
   padding: 8px;
+  max-height: 1290px;
 
   p {
     margin: 8px 0;
@@ -48,12 +53,14 @@ export const ContainerPontuacao = styled.div`
   margin-right: 30px;
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 21px;
+    height: 20px;
+    margin-top: 8.5px;
   }
 
   h3 {
     margin-right: 3px;
+    padding: 8px 0 16px 8px;
   }
 `
 export const ClassificaoPorEstrela = styled.div`
@@ -62,6 +69,7 @@ export const ClassificaoPorEstrela = styled.div`
 export const Descricao = styled.p`
   font-size: 14px;
   line-height: 22px;
+  padding: 0 8px 8px;
 `
 export const Titulo = styled.h3`
   font-size: 16px;
@@ -80,6 +88,9 @@ export const AddCartButton = styled(Link)`
   color: ${cores.branco};
   border: none;
   padding: 4px 7px;
+  width: 82px;
+  height: 24px;
+  margin: 8px;
 
   font-weight: 700;
   text-decoration: none;

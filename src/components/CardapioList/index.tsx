@@ -8,26 +8,26 @@ export type Props = {
   restaurantes: Opcoes[]
 }
 
-const CardapioList = ({ title, restaurantes, background }: Props) => {
-  const fomatarPreco = (preco: number) => {
-    return new Intl.NumberFormat('pt-br', {
-      style: 'currency',
-      currency: 'BRL',
-    }).format(preco)
-  }
+export const fomatarPreco = (preco: number) => {
+  return new Intl.NumberFormat('pt-br', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(preco)
+}
 
+const CardapioList = ({ title, restaurantes, background }: Props) => {
   const getRestauranteTags = (restaurantes: Opcoes) => {
     const tags = []
 
     if (restaurantes.release_date) {
       tags.push(restaurantes.release_date)
     }
-    if (restaurantes.preco) {
-      tags.push(`${restaurantes.preco}`)
+    if (restaurantes.cardapio.preco) {
+      tags.push(`${restaurantes.cardapio.preco}`)
     }
 
     if (restaurantes.current) {
-      tags.push(fomatarPreco(restaurantes.current))
+      tags.push(fomatarPreco(restaurantes.cardapio.preco))
     }
     return tags
   }
@@ -37,17 +37,18 @@ const CardapioList = ({ title, restaurantes, background }: Props) => {
       <h2>{title}</h2>
       <List>
         {restaurantes.map((produto) => (
-          <Cardapio
-            key={produto.id}
-            id={produto.id}
-            titulo={produto.titulo}
-            descricao={produto.descricao}
-            infos={getRestauranteTags(produto)}
-            nome={produto.nome}
-            avaliacao={produto.avaliacao}
-            capa={produto.capa}
-            tipo={produto.tipo}
-          />
+          <li key={produto.id}>
+            <Cardapio
+              id={produto.id}
+              titulo={produto.titulo}
+              descricao={produto.descricao}
+              infos={getRestauranteTags(produto)}
+              nome={produto.cardapio.nome}
+              avaliacao={produto.avaliacao}
+              capa={produto.capa}
+              tipo={produto.tipo}
+            />
+          </li>
         ))}
       </List>
     </Container>

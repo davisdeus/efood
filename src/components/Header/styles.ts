@@ -24,9 +24,10 @@ export const HeaderBar = styled.header`
 
   h1 {
     margin-top: 90px;
-    font-size: 24px;
+    font-size: 36px;
     font-weight: bold;
     color: ${cores.rosa};
+    line-height: 42.19px;
     padding-bottom: 40px;
   }
 `
@@ -34,6 +35,7 @@ export const HeaderBar = styled.header`
 export const Div = styled.div`
   text-align: center;
   margin-top: 30px;
+  margin-bottom: 25px;
 
   img {
     width: 125px;
@@ -41,12 +43,4 @@ export const Div = styled.div`
     margin: 50px 0;
   }
 `
-export const LinkCart = styled.a`
-  margin-top: 33px;
-  display: flex;
-  img {
-    margin-left: 6px;
-    width: 30px;
-    height: 25px;
-  }
-`
+export const LinkCart = styled.a``

@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
   body {
-    background-color: ${cores.preto};
+    background-color: ${cores.branco};
   }
 
   .maxContainer {
@@ -41,7 +41,7 @@ export const HeaderBar2 = styled.header`
   width: 1366px;
   background-color: ${cores.beje};
 
-  .contaiberHeader {
+  .containerHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
