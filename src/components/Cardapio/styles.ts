@@ -21,7 +21,7 @@ export const Card = styled.div`
   color: ${cores.rosa};
 
   img {
-    width: 472px;
+    width: 469px;
     height: 217px;
   }
 `
