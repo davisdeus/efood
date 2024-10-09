@@ -8,6 +8,7 @@ export const FooterContainer = styled.div`
   background-color: ${cores.beje};
   width: 100%;
   margin: 0 auto;
+  margin-top: auto;
 
   h3 {
     font-size: 10px;

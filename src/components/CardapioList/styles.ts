@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-interface ContainerProps {
-  background: string
-}
-
-export const Container = styled.section<ContainerProps>`
-  background: ${(props) => props.background};
-  padding: 20px;
+export const ContainerList = styled.div`
+  max-width: 1024px;
+  width: 100%;
+  margin: 56px auto 120px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 `
 
 export const List = styled.div`

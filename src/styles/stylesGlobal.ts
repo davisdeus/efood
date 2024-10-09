@@ -21,12 +21,12 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
   body {
-    background-color: ${cores.branco};
+    background-color: ${cores.Seashell};
   }
 
   .maxContainer {
     max-width: 1366px;
-    height: 1650px;
+    height: 2148px;
     background-color: ${cores.Seashell};
     margin: 0 auto;
   }

@@ -1,69 +1,98 @@
-import {
-  AddCartButton,
-  Card,
-  CardContainer,
-  CardDados,
-  ClassificaoPorEstrela,
-  ContainerPontuacao,
-  Descricao,
-  Infos,
-} from './styles'
-import estrela from '../../assets/emages/estrela.png'
-import Tag from '../Tag'
+import { CardCardapio, List, Modal, ModalContent } from './styles'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { abrir, addicionar } from '../../store/reduces/cart'
+import fechar from '../../assets/emages/close.png'
+import Button from '../Button'
 
 type Props = {
   id: number
-  avaliacao: string
   descricao: string
-  capa: string
   nome: string
-  infos: string[]
-  titulo: string
-  tipo: string
+  preco: number
+  porcao: string
+  foto: string
 }
 
-const Cardapio = ({
+export const formatarPreco = (preco = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(preco)
+}
+
+const CardapioProduto = ({
   id,
-  avaliacao,
   descricao,
-  capa,
-  infos,
-  titulo,
-  tipo,
+  nome,
+  preco,
+  foto,
+  porcao,
 }: Props) => {
+  const [isVisible, setIsVisible] = useState(false)
+  const dispatch = useDispatch()
+
+  const mostrarModal = () => {
+    if (isVisible) {
+      return 'isVisible'
+    }
+    return ''
+  }
+  const adicionarCarrinho = () => {
+    const cardapio = { id, descricao, nome, preco, foto, porcao }
+    dispatch(addicionar(cardapio))
+    dispatch(abrir())
+  }
+
   const getDescricao = (descricao: string) => {
-    if (descricao.length > 95) {
-      return descricao.slice(0, 250) + '...'
+    if (descricao.length > 150) {
+      return descricao.slice(0, 150) + '...'
     }
     return descricao
   }
 
   return (
-    <CardContainer>
-      <Card>
-        <img src={capa} alt="foto do restaurante" />
-        <Infos>
-          <Tag size="big">{tipo}</Tag>
-        </Infos>
+    <>
+      <List>
+        <CardCardapio>
+          <img src={foto} alt="foto do restaurante" />
+          <h2>{nome}</h2>
+          <p>{getDescricao(descricao)}</p>
+          <button onClick={() => setIsVisible(true)}>
+            Adicione ao carrinho
+          </button>
+        </CardCardapio>
 
-        <ContainerPontuacao>
-          <h3>{titulo}</h3>
-          <ClassificaoPorEstrela>
-            <h3>{avaliacao}</h3>
-            <img src={estrela} />
-          </ClassificaoPorEstrela>
-        </ContainerPontuacao>
-        <Descricao>{getDescricao(descricao)}</Descricao>
-        <AddCartButton
-          type="link"
-          to={`/product/${id}`}
-          title="Clique e saiba mais sobre nosso cardapio"
-        >
-          Saiba mais
-        </AddCartButton>
-      </Card>
-    </CardContainer>
+        <Modal className={mostrarModal()}>
+          <ModalContent>
+            <div>
+              <img src={foto} alt="Imagem do prato" />
+              <div>
+                <div>
+                  <h2>{nome}</h2>
+                  <img
+                    src={fechar}
+                    onClick={() => setIsVisible(false)}
+                    alt="Clique para fechar"
+                  />
+                </div>
+                <p>{descricao}</p>
+                <p>Porção: {porcao}</p>
+                <Button
+                  onClick={adicionarCarrinho}
+                  type="button"
+                  title="Adicionar ao carrinho"
+                >
+                  `Adicionar ao carrinho - ${formatarPreco(preco)}`
+                </Button>
+              </div>
+            </div>
+          </ModalContent>
+          <div className="overlay" onClick={() => setIsVisible(false)}></div>
+        </Modal>
+      </List>
+    </>
   )
 }
 
-export default Cardapio
+export default CardapioProduto

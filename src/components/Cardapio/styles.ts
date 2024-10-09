@@ -1,99 +1,132 @@
 import styled from 'styled-components'
 import { cores } from '../../styles/stylesGlobal'
-import TagContainer from '../Tag/styles'
-import { Link } from 'react-router-dom'
 
-export const CardContainer = styled.div`
-  display: grid;
-  justify-content: center;
-`
-export const Card = styled.div`
+export const CardCardapio = styled.div`
+  width: 320px;
+  padding: 8px;
+  background-color: ${cores.rosa};
+  color: ${cores.beje};
+  display: flex;
+  flex-direction: column;
   position: relative;
-  margin-top: 10px;
-  max-width: 1024px;
-  width: 472px;
-  height: 398px;
-
-  border-left: 2px solid ${cores.rosa};
-  border-right: 2px solid ${cores.rosa};
-  border-bottom: 2px solid ${cores.rosa};
-  background-color: ${cores.branco};
-  color: ${cores.rosa};
 
   img {
-    width: 469px;
-    height: 217px;
+    height: 170px;
+    object-fit: cover;
   }
-`
 
-export const CardDados = styled.div`
-  height: 181px;
-  padding: 8px;
-  max-height: 1290px;
+  h2 {
+    margin: 8px 0;
+    font-weight: 900;
+    font-size: 16px;
+  }
 
   p {
-    margin: 8px 0;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: ${cores.beje};
+  }
+
+  button {
+    color: ${cores.beje};
+    background-color: ${cores.beje};
+    color: ${cores.rosa};
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    line-height: 16px;
+    cursor: pointer;
   }
 `
-export const Image = styled.div`
-  height: 217px;
-  font-weight: bold;
-  position: relative;
-  margin-top: 60px;
 
-  ${TagContainer} {
+export const Modal = styled.div`
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  &.isVisible {
+    display: flex;
+  }
+
+  .overlay {
     position: absolute;
-    top: 16px;
-    right: 16px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
   }
 `
-export const ContainerPontuacao = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-right: 30px;
 
-  img {
-    width: 21px;
-    height: 20px;
-    margin-top: 8.5px;
+export const ModalContent = styled.div`
+  position: relative;
+  max-width: 1024px;
+  height: 344px;
+  margin-top: 490px;
+  z-index: 1;
+
+  > div {
+    display: flex;
+    padding: 0 0 32px 32px;
+    background-color: ${cores.rosa};
+    color: ${cores.beje};
+
+    > img {
+      width: 280px;
+      height: 280px;
+      margin-right: 24px;
+      object-fit: cover;
+      margin-top: 32px;
+    }
+
+    div {
+      display: block;
+
+      div {
+        display: flex;
+        justify-content: space-between;
+
+        h2 {
+          font-size: 21px;
+          font-weight: 900;
+          margin-top: 32px;
+        }
+
+        img {
+          height: 16px;
+          width: 16px;
+          margin: 8px;
+          cursor: pointer;
+        }
+      }
+
+      p {
+        margin: 16px 0;
+        font-size: 14px;
+      }
+
+      button {
+        border: none;
+        padding: 4px 7px;
+        font-size: 14px;
+        font-weight: 700;
+        background-color: ${cores.beje};
+        color: ${cores.rosa};
+      }
+    }
   }
-
-  h3 {
-    margin-right: 3px;
-    padding: 8px 0 16px 8px;
-  }
 `
-export const ClassificaoPorEstrela = styled.div`
-  display: flex;
-`
-export const Descricao = styled.p`
-  font-size: 14px;
-  line-height: 22px;
-  padding: 0 8px 8px;
-`
-export const Titulo = styled.h3`
-  font-size: 16px;
-  font-weight: bold;
-  display: flex;
-  margin-top: 16px;
-  margin-bottom: 8px;
-`
-export const Infos = styled.div`
-  position: absolute;
-  top: 16px;
-  right: 16px;
-`
-export const AddCartButton = styled(Link)`
-  background-color: ${cores.rosa};
-  color: ${cores.branco};
-  border: none;
-  padding: 4px 7px;
-  width: 82px;
-  height: 24px;
-  margin: 8px;
-
-  font-weight: 700;
-  text-decoration: none;
-  text-align: center;
-  font-size: 14px;
+export const List = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 8px;
+  gap: 32px;
 `

@@ -1,15 +1,29 @@
-import Gallery from '../../components/Gallery'
-import { Header2 } from '../../components/Header/indexHeader'
+import { useParams } from 'react-router-dom'
+import { Header2 } from '../../components/Headers/indexHeader'
 import Hero from '../../components/Hero'
+import CardapioList from '../../components/CardapioList'
+import Footer from '../../components/Footer'
+import { useGetRestauranteSelectedQuery } from '../../servisces/api'
 
-const Product = () => (
-  <>
-    <div className="maxContainer">
-      <Header2 />
-      <Hero />
-      <Gallery name="Pizza Marguerita" />
-    </div>
-  </>
-)
+const Product = () => {
+  const { id } = useParams()
+  const { data: restaurant } = useGetRestauranteSelectedQuery(id!)
+
+  if (!restaurant) {
+    return <h4>Caregando...</h4>
+  }
+
+  return (
+    <>
+      <div className="maxContainer">
+        <Header2 restaurant={restaurant} />
+        <div className="container">
+          <CardapioList produtos={restaurant.cardapio} />
+        </div>
+        <Footer />
+      </div>
+    </>
+  )
+}
 
 export default Product
