@@ -12,6 +12,7 @@ export const BtnContainer = styled.button<Props>`
   font-weight: bold;
   padding: 8px 16px;
   border-radius: 8px;
+  cursor: pointer;
 `
 export const BtnLink = styled(Link)`
   border: 2px solid ${cores.branco};
@@ -22,4 +23,5 @@ export const BtnLink = styled(Link)`
   padding: 8px 16px;
   text-decoration: none;
   border-radius: 8px;
+  cursor: pointer;
 `

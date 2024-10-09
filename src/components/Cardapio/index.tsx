@@ -53,44 +53,40 @@ const CardapioProduto = ({
 
   return (
     <>
-      <List>
-        <CardCardapio>
-          <img src={foto} alt="foto do restaurante" />
-          <h2>{nome}</h2>
-          <p>{getDescricao(descricao)}</p>
-          <button onClick={() => setIsVisible(true)}>
-            Adicione ao carrinho
-          </button>
-        </CardCardapio>
+      <CardCardapio>
+        <img src={foto} alt="foto do restaurante" />
+        <h2>{nome}</h2>
+        <p>{getDescricao(descricao)}</p>
+        <button onClick={() => setIsVisible(true)}>Adicione ao carrinho</button>
+      </CardCardapio>
 
-        <Modal className={mostrarModal()}>
-          <ModalContent>
+      <Modal className={mostrarModal()}>
+        <ModalContent>
+          <div>
+            <img src={foto} alt="Imagem do prato" />
             <div>
-              <img src={foto} alt="Imagem do prato" />
               <div>
-                <div>
-                  <h2>{nome}</h2>
-                  <img
-                    src={fechar}
-                    onClick={() => setIsVisible(false)}
-                    alt="Clique para fechar"
-                  />
-                </div>
-                <p>{descricao}</p>
-                <p>Porção: {porcao}</p>
-                <Button
-                  onClick={adicionarCarrinho}
-                  type="button"
-                  title="Adicionar ao carrinho"
-                >
-                  `Adicionar ao carrinho - ${formatarPreco(preco)}`
-                </Button>
+                <h2>{nome}</h2>
+                <img
+                  src={fechar}
+                  onClick={() => setIsVisible(false)}
+                  alt="Clique para fechar"
+                />
               </div>
+              <p>{descricao}</p>
+              <p>Porção: {porcao}</p>
+              <Button
+                onClick={adicionarCarrinho}
+                type="button"
+                title="Adicionar ao carrinho"
+              >
+                Adicionar ao carrinho - ${formatarPreco(preco)}
+              </Button>
             </div>
-          </ModalContent>
-          <div className="overlay" onClick={() => setIsVisible(false)}></div>
-        </Modal>
-      </List>
+          </div>
+        </ModalContent>
+        <div className="overlay" onClick={() => setIsVisible(false)}></div>
+      </Modal>
     </>
   )
 }

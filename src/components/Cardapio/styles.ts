@@ -69,22 +69,20 @@ export const Modal = styled.div`
 export const ModalContent = styled.div`
   position: relative;
   max-width: 1024px;
-  height: 344px;
+  height: 490px;
   margin-top: 490px;
   z-index: 1;
 
   > div {
     display: flex;
-    padding: 0 0 32px 32px;
+    padding: 32px;
     background-color: ${cores.rosa};
     color: ${cores.beje};
 
     > img {
       width: 280px;
       height: 280px;
-      margin-right: 24px;
       object-fit: cover;
-      margin-top: 32px;
     }
 
     div {
@@ -97,19 +95,18 @@ export const ModalContent = styled.div`
         h2 {
           font-size: 21px;
           font-weight: 900;
-          margin-top: 32px;
+          margin-left: 24px;
         }
 
         img {
           height: 16px;
           width: 16px;
-          margin: 8px;
           cursor: pointer;
         }
       }
 
       p {
-        margin: 16px 0;
+        margin: 16px 0 20px 24px;
         font-size: 14px;
       }
 
@@ -120,13 +117,11 @@ export const ModalContent = styled.div`
         font-weight: 700;
         background-color: ${cores.beje};
         color: ${cores.rosa};
+        margin-left: 24px;
       }
     }
   }
 `
 export const List = styled.ul`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 8px;
-  gap: 32px;
+  padding: px;
 `
