@@ -17,7 +17,13 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addicionar: (state, action: PayloadAction<Cardapio>) => {
-      state.items.push(action.payload)
+      const cardapio = state.items.find((item) => item.id === action.payload.id)
+
+      if (!cardapio) {
+        state.items.push(action.payload)
+      } else {
+        alert('O prato ja foi adicionado a carrinho')
+      }
     },
     abrir: (state) => {
       state.estaAberto = true

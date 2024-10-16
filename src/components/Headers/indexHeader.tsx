@@ -1,6 +1,6 @@
 import logo from '../../assets/emages/logo.png'
 import img from '../../assets/emages/Vector.png'
-import { Div, HeaderImg, LinkCart } from './styles'
+import { Div, HeaderImg, CartButton } from './styles'
 import { HeaderBar2 } from '../../styles/stylesGlobal'
 import { Link } from 'react-router-dom'
 import { Restaurante } from '../../pages/Home'
@@ -28,9 +28,9 @@ export const Header2 = ({ restaurant }: Props) => {
           <Div>
             <img src={logo} alt="efood" />
           </Div>
-          <LinkCart onClick={AbrirCarrinho}>
+          <CartButton onClick={AbrirCarrinho}>
             {items.length} produtos(s) no Carrinho
-          </LinkCart>
+          </CartButton>
         </div>
       </HeaderBar2>
 

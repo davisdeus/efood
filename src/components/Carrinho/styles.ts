@@ -11,6 +11,10 @@ export const CarrinhoContainer = styled.div`
   display: none;
   justify-content: flex-end;
   z-index: 1;
+
+  &.is-open {
+    display: flex;
+  }
 `
 export const Overlay = styled.div`
   position: absolute;
@@ -66,4 +70,28 @@ export const CarrinhoItem = styled.li`
 export const Prices = styled.p`
   font-size: 14px;
   font-weight: 400;
+`
+export const CarrinhoContaine = styled.div`
+  div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    color: ${cores.beje};
+  }
+  button {
+    max-width: 344px;
+    height: 24px;
+    color: ${cores.rosa};
+    background-color: ${cores.beje};
+    border: none;
+    width: 100%;
+    margin-top: 16px;
+    border-radius: none;
+    padding: 4px 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16.41px;
+    text-align: center;
+    cursor: pointer;
+  }
 `

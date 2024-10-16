@@ -43,7 +43,9 @@ export const Div = styled.div`
     margin: 50px 0;
   }
 `
-export const LinkCart = styled.a``
+export const CartButton = styled.a`
+  cursor: pointer;
+`
 
 export const HeaderImg = styled.div`
   height: 280px;
