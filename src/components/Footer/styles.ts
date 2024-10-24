@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles/stylesGlobal'
+import { breakpoints, cores } from '../../styles/stylesGlobal'
 
 export const FooterContainer = styled.div`
   max-width: 1366px;
@@ -18,6 +18,21 @@ export const FooterContainer = styled.div`
   img {
     margin: 40px 0 32px 0;
   }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 1366px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 1200px;
+    h3 {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 900px;
+  }
 `
 export const Redes = styled.ul`
   display: flex;
@@ -25,4 +40,7 @@ export const Redes = styled.ul`
   justify-content: center;
   grid-gap: 8px;
   background-color: ${cores.beje};
+
+  @media (max-width: ${breakpoints.desktop}) {
+  }
 `

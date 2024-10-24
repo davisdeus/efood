@@ -18,41 +18,50 @@ const Restaurante = ({
   descricao,
   id,
   infos,
-}: Props) => (
-  <S.CardSection>
-    <S.CardImage>
-      <img src={capa} alt="Imagem do restaurante" />
-      <S.Infos>
-        {infos.map((info) => {
-          if (info) {
-            return (
-              <Tag size="big" key={info}>
-                {info}
-              </Tag>
-            )
-          }
-        })}
-      </S.Infos>
-    </S.CardImage>
+}: Props) => {
+  const getDescription = (descriptio: string) => {
+    if (descriptio.length > 180) {
+      return descriptio.slice(0, 180) + '...'
+    }
+    return descriptio
+  }
 
-    <S.CardInfos>
-      <S.CardHeader>
-        <h3>{titulo}</h3>
-        <div>
-          <h3>{avaliacao}</h3>
-          <img src={estrela} alt="Avaliação" />
-        </div>
-      </S.CardHeader>
+  return (
+    <S.CardSection>
+      <S.CardImage>
+        <img src={capa} alt="Imagem do restaurante" />
+        <S.Infos>
+          {infos.map((info) => {
+            if (info) {
+              return (
+                <Tag size="big" key={info}>
+                  {info}
+                </Tag>
+              )
+            }
+          })}
+        </S.Infos>
+      </S.CardImage>
 
-      <p>{descricao}</p>
-      <S.BtnLink
-        title={`Clicque aqui para ver mais detalhes do cardapio.`}
-        to={`/product/${id}`}
-      >
-        Saiba mais
-      </S.BtnLink>
-    </S.CardInfos>
-  </S.CardSection>
-)
+      <S.CardInfos>
+        <S.CardHeader>
+          <h3>{titulo}</h3>
+          <div>
+            <h3>{avaliacao}</h3>
+            <img src={estrela} alt="Avaliação" />
+          </div>
+        </S.CardHeader>
+        <p>{getDescription(descricao)}</p>
+
+        <S.BtnLink
+          title={`Clicque aqui para ver mais detalhes do cardapio.`}
+          to={`/product/${id}`}
+        >
+          Saiba mais
+        </S.BtnLink>
+      </S.CardInfos>
+    </S.CardSection>
+  )
+}
 
 export default Restaurante

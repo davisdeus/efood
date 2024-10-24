@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles/stylesGlobal'
+import { breakpoints, cores } from '../../styles/stylesGlobal'
 import lixeira from '../../assets/emages/lixeira-de-reciclagem 1.png'
 
 export const CarrinhoContainer = styled.div`

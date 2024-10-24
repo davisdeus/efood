@@ -5,7 +5,6 @@ export const ImgContainer = styled.div`
   position: relative;
   display: block;
   height: 338px;
-  width: 100%;
   color: ${cores.branco};
   margin-bottom: 64px;
 

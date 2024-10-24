@@ -1,14 +1,20 @@
 import styled from 'styled-components'
-import { cores } from '../../styles/stylesGlobal'
+import { breakpoints, cores } from '../../styles/stylesGlobal'
 
 export const CardCardapio = styled.div`
   width: 320px;
+  height: 325px;
   padding: 8px;
   background-color: ${cores.rosa};
   color: ${cores.beje};
   display: flex;
   flex-direction: column;
   position: relative;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 420px;
+    height: 305px;
+  }
 
   img {
     height: 170px;
@@ -38,6 +44,11 @@ export const CardCardapio = styled.div`
     padding-bottom: 4px;
     line-height: 16px;
     cursor: pointer;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 550px;
+    margin-left: 43px;
   }
 `
 

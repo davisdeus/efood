@@ -1,5 +1,4 @@
 import logo from '../../assets/emages/logo.png'
-import img from '../../assets/emages/Vector.png'
 import { Div, HeaderImg, CartButton } from './styles'
 import { HeaderBar2 } from '../../styles/stylesGlobal'
 import { Link } from 'react-router-dom'
@@ -22,7 +21,7 @@ export const Header2 = ({ restaurant }: Props) => {
 
   return (
     <>
-      <HeaderBar2 style={{ backgroundImage: `url(${img})` }}>
+      <HeaderBar2>
         <div className="containerHeader">
           <Link to="/">Restaurantes</Link>
           <Div>

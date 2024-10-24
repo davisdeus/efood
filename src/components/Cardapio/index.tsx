@@ -1,4 +1,4 @@
-import { CardCardapio, List, Modal, ModalContent } from './styles'
+import { CardCardapio, Modal, ModalContent } from './styles'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { abrir, addicionar } from '../../store/reduces/cart'
@@ -80,7 +80,7 @@ const CardapioProduto = ({
                 type="button"
                 title="Adicionar ao carrinho"
               >
-                Adicionar ao carrinho - ${formatarPreco(preco)}
+                Adicionar ao carrinho - {formatarPreco(preco)}
               </Button>
             </div>
           </div>

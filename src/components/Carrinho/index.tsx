@@ -29,7 +29,7 @@ const Carrinho = () => {
         <ul>
           {items.map((item) => (
             <S.CarrinhoItem key={item.id}>
-              <img src={item.foto} alt="Imagem de uma pizza" />
+              <img src={item.foto} alt="Imagem de um prato" />
               <div>
                 <h3>{item.nome}</h3>
                 <S.Prices>{formatarPreco(item.preco)}</S.Prices>

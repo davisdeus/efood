@@ -1,11 +1,26 @@
 import styled from 'styled-components'
-import { cores } from '../../styles/stylesGlobal'
+import { breakpoints, cores } from '../../styles/stylesGlobal'
 
 export const HeaderBar = styled.header`
   width: 1366px;
   height: 384px;
   text-align: center;
   padding: 50px 0;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    padding: 50px 0;
+    font-size: 24px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 1200px;
+    font-size: 16px;
+  }
+  @media (max-width: ${breakpoints.mobile}) {
+    max-width: 530px;
+    height: 300px;
+    padding-bottom: 300px;
+  }
 
   a {
     color: ${cores.rosa};
@@ -48,6 +63,7 @@ export const CartButton = styled.a`
 `
 
 export const HeaderImg = styled.div`
+  width: 1366px;
   height: 280px;
   padding: 24px 170px 32px;
   background-size: cover;
@@ -88,5 +104,11 @@ export const HeaderImg = styled.div`
       color: ${cores.branco};
       z-index: 1;
     }
+  }
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 1200px;
+  }
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 900px;
   }
 `

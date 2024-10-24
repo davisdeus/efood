@@ -12,6 +12,12 @@ export const cores = {
   Seashell: '#FFF8F2',
 }
 
+export const breakpoints = {
+  desktop: '1024px',
+  tablet: '768px',
+  mobile: '480px',
+}
+
 export const GlobalStyle = createGlobalStyle`
   *{
     margin: 0;
@@ -29,13 +35,13 @@ export const GlobalStyle = createGlobalStyle`
     height: 2148px;
     background-color: ${cores.Seashell};
     margin: 0 auto;
+
   }
   .container {
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
-
-  }
+    }
 `
 export const HeaderBar2 = styled.header`
   width: 1366px;
@@ -47,6 +53,10 @@ export const HeaderBar2 = styled.header`
     justify-content: space-between;
     width: 1024px;
     margin: 0 auto;
+
+    @media (max-width: ${breakpoints.mobile}) {
+      width: 850px;
+    }
   }
 
   a {
@@ -54,5 +64,11 @@ export const HeaderBar2 = styled.header`
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
+  }
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 1200px;
+  }
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 900px;
   }
 `
