@@ -8,7 +8,7 @@ export const List = styled.div`
   grid-template-columns: 1fr 1fr;
   column-gap: 80px;
   row-gap: 48px;
-  margin-top: 50px;
+  margin: 50px 0;
 
   @media (max-width: ${breakpoints.desktop}) {
     column-gap: 130px;
