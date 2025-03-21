@@ -13,7 +13,7 @@ import * as S from './styles'
 import { RootReducer } from '../../store'
 import { obtertTotalPreco, parseToBrl } from '../../utils'
 
-const Caixa = ({ onClose }: { onClose: () => void }) => {
+const Checkout = ({ onClose }: { onClose: () => void }) => {
   const [pagarCartao, setPagarCartao] = useState(false)
   const [isOpenCart, setIsOpenCart] = useState(false)
 
@@ -429,4 +429,4 @@ const Caixa = ({ onClose }: { onClose: () => void }) => {
     </S.Container>
   )
 }
-export default Caixa
+export default Checkout

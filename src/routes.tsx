@@ -1,18 +1,18 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Product from './pages/Product'
-import Caixa from './pages/Caixa'
+import Checkout from './pages/Checkout'
 
 const Rotas = () => {
   const handleClose = () => {
-    // Lógica para fechar o componente Caixa
+    // Lógica para fechar o componente Checkout
   }
 
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/product/:id" element={<Product />} />
-      <Route path="/caixa" element={<Caixa onClose={handleClose} />} />
+      <Route path="/checkout" element={<Checkout onClose={handleClose} />} />
     </Routes>
   )
 }

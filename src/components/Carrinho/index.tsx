@@ -21,7 +21,7 @@ const Carrinho = () => {
   }
 
   const goToCheckout = () => {
-    navigate('/caixa')
+    navigate('/checkout')
     fecharCarrinho()
   }
 
