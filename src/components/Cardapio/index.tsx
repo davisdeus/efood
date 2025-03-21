@@ -1,9 +1,13 @@
-import { CardCardapio, Modal, ModalContent } from './styles'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { abrir, addicionar } from '../../store/reduces/cart'
-import fechar from '../../assets/emages/close.png'
+
 import Button from '../Button'
+
+import { abrir, addicionar } from '../../store/reduces/cart'
+import closeIcon from '../../assets/emages/close.png'
+
+import * as S from './styles'
+import { parseToBrl } from '../../utils'
 
 type Props = {
   id: number
@@ -12,13 +16,6 @@ type Props = {
   preco: number
   porcao: string
   foto: string
-}
-
-export const formatarPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  }).format(preco)
 }
 
 const CardapioProduto = ({
@@ -53,40 +50,42 @@ const CardapioProduto = ({
 
   return (
     <>
-      <CardCardapio>
+      <S.CardCardapio>
         <img src={foto} alt="foto do restaurante" />
         <h2>{nome}</h2>
         <p>{getDescricao(descricao)}</p>
         <button onClick={() => setIsVisible(true)}>Adicione ao carrinho</button>
-      </CardCardapio>
+      </S.CardCardapio>
 
-      <Modal className={mostrarModal()}>
-        <ModalContent>
+      <S.Modal className={mostrarModal()}>
+        <S.ModalContent>
           <div>
             <img src={foto} alt="Imagem do prato" />
             <div>
               <div>
                 <h2>{nome}</h2>
                 <img
-                  src={fechar}
+                  src={closeIcon}
                   onClick={() => setIsVisible(false)}
                   alt="Clique para fechar"
+                  title="Clique para fechar"
                 />
               </div>
               <p>{descricao}</p>
               <p>Porção: {porcao}</p>
               <Button
+                background="light"
                 onClick={adicionarCarrinho}
                 type="button"
                 title="Adicionar ao carrinho"
               >
-                Adicionar ao carrinho - {formatarPreco(preco)}
+                Adicionar ao carrinho - {parseToBrl(preco)}
               </Button>
             </div>
           </div>
-        </ModalContent>
+        </S.ModalContent>
         <div className="overlay" onClick={() => setIsVisible(false)}></div>
-      </Modal>
+      </S.Modal>
     </>
   )
 }

@@ -1,11 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux'
-import * as S from './styles'
+import { useNavigate } from 'react-router-dom'
+
 import { RootReducer } from '../../store'
 import { fechar, excluir } from '../../store/reduces/cart'
-import { formatarPreco } from '../Cardapio'
+
+import { obtertTotalPreco, parseToBrl } from '../../utils'
+import * as S from './styles'
 
 const Carrinho = () => {
   const { estaAberto, items } = useSelector((state: RootReducer) => state.cart)
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const fecharCarrinho = () => {
@@ -16,37 +20,49 @@ const Carrinho = () => {
     dispatch(excluir(id))
   }
 
-  const obtertTotalPreco = () => {
-    return items.reduce((acumulador, valorATual) => {
-      return (acumulador += valorATual.preco)
-    }, 0)
+  const goToCheckout = () => {
+    navigate('/caixa')
+    fecharCarrinho()
   }
 
   return (
     <S.CarrinhoContainer className={estaAberto ? 'is-open' : ''}>
       <S.Overlay onClick={fecharCarrinho} />
       <S.Sidebar>
-        <ul>
-          {items.map((item) => (
-            <S.CarrinhoItem key={item.id}>
-              <img src={item.foto} alt="Imagem de um prato" />
+        {items.length > 0 ? (
+          <>
+            <ul>
+              {items.map((item) => (
+                <S.CarrinhoItem key={item.id}>
+                  <img src={item.foto} alt="Imagem de um prato" />
+                  <div>
+                    <h3>{item.nome}</h3>
+                    <S.Prices>{parseToBrl(item.preco)}</S.Prices>
+                  </div>
+                  <button type="button" onClick={() => excluirItem(item.id)} />
+                </S.CarrinhoItem>
+              ))}
+            </ul>
+            <S.CarrinhoContaine>
               <div>
-                <h3>{item.nome}</h3>
-                <S.Prices>{formatarPreco(item.preco)}</S.Prices>
+                <p>Valor Total</p>
+                <p>{parseToBrl(obtertTotalPreco(items))}</p>
               </div>
-              <button type="button" onClick={() => excluirItem(item.id)} />
-            </S.CarrinhoItem>
-          ))}
-        </ul>
-        <S.CarrinhoContaine>
-          <div>
-            <p>Valor Total</p>
-            <p>{formatarPreco(obtertTotalPreco())}</p>
-          </div>
-          <button title="Clique para continuar com a comprar" type="button">
-            Continuar com a entrega
-          </button>
-        </S.CarrinhoContaine>
+              <button
+                onClick={goToCheckout}
+                title="Clique para continuar com a comprar"
+                type="button"
+              >
+                Continuar com a entrega
+              </button>
+            </S.CarrinhoContaine>
+          </>
+        ) : (
+          <p className="empty-text">
+            O carrinho está vazio, adicione um produto para continuar com a
+            comprar.
+          </p>
+        )}
       </S.Sidebar>
     </S.CarrinhoContainer>
   )

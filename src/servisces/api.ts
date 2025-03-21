@@ -6,29 +6,29 @@ type RespostaCompra = {
 }
 type Produto = {
   id: number
-  preco: number
+  price: number
 }
 
 type ComprarProduto = {
   produtos: Produto[]
-  entrega: {
-    receptor: string
-    endereco: {
-      descricao: string
-      cidade: string
-      cep: string
-      numero: number
-      complemento?: string
+  delivery: {
+    receiver: string
+    address: {
+      description: string
+      city: string
+      zipCode: string
+      number: number
+      complement?: string
     }
-  }
-  pagamento: {
-    cartao: {
-      nome: string
-      numero: number
-      codigo: number
-      experira: {
-        mes: number
-        ano: number
+    payment: {
+      card: {
+        name: string
+        number: string
+        code: number
+        expires: {
+          month: number
+          year: number
+        }
       }
     }
   }
@@ -46,10 +46,10 @@ const api = createApi({
       query: () => 'restaurantes',
     }),
     compra: builder.mutation<RespostaCompra, ComprarProduto>({
-      query: (corpo) => ({
+      query: (body) => ({
         url: 'checkout',
         method: 'POST',
-        corpo,
+        body: body,
       }),
     }),
   }),

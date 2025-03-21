@@ -1,7 +1,10 @@
 import { Header } from '../../components/Headers'
 import Footer from '../../components/Footer'
-import { useGetRestaurantesQuery } from '../../servisces/api'
 import RestaurantList from '../../components/RestauranteList'
+
+import { useGetRestaurantesQuery } from '../../servisces/api'
+
+import Loader from '../../components/Loader'
 
 export type Cardapio = {
   foto: string
@@ -26,7 +29,7 @@ export type Restaurante = {
 const Home = () => {
   const { isLoading, error, data: restaurantes } = useGetRestaurantesQuery()
   if (isLoading) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   if (error) {
@@ -37,7 +40,9 @@ const Home = () => {
       <div className="maxContainer">
         <Header />
         <div className="container">
-          {restaurantes && <RestaurantList restaurantes={restaurantes} />}
+          {restaurantes && (
+            <RestaurantList restaurantes={restaurantes} isLoading={isLoading} />
+          )}
         </div>
         <Footer />
       </div>

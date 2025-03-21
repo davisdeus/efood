@@ -1,18 +1,18 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles/stylesGlobal'
+import { breakpoints, colors } from '../../styles/stylesGlobal'
 
 export const FooterContainer = styled.div`
   max-width: 1366px;
   height: 298px;
   text-align: center;
-  background-color: ${cores.beje};
+  background-color: ${colors.beije};
   width: 100%;
   margin: 0 auto;
   margin-top: auto;
 
   h3 {
     font-size: 10px;
-    color: ${cores.rosa};
+    color: ${colors.pink};
   }
 
   img {
@@ -39,7 +39,7 @@ export const Redes = styled.ul`
   align-items: center;
   justify-content: center;
   grid-gap: 8px;
-  background-color: ${cores.beje};
+  background-color: ${colors.beije};
 
   @media (max-width: ${breakpoints.desktop}) {
   }

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles/stylesGlobal'
+import { breakpoints, colors } from '../../styles/stylesGlobal'
 
 export const HeaderBar = styled.header`
   width: 1366px;
@@ -23,7 +23,7 @@ export const HeaderBar = styled.header`
   }
 
   a {
-    color: ${cores.rosa};
+    color: ${colors.pink};
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
@@ -33,7 +33,7 @@ export const HeaderBar = styled.header`
     margin-top: 60px;
     font-size: 18px;
     font-weight: bold;
-    color: ${cores.rosa};
+    color: ${colors.pink};
     padding-bottom: 40px;
   }
 
@@ -41,7 +41,7 @@ export const HeaderBar = styled.header`
     margin-top: 90px;
     font-size: 36px;
     font-weight: bold;
-    color: ${cores.rosa};
+    color: ${colors.pink};
     line-height: 42.19px;
     padding-bottom: 40px;
   }
@@ -93,7 +93,7 @@ export const HeaderImg = styled.div`
       font-weight: 100;
       font-size: 32px;
       line-height: 37.5px;
-      color: ${cores.branco};
+      color: ${colors.white};
       z-index: 1;
     }
 
@@ -101,7 +101,7 @@ export const HeaderImg = styled.div`
       font-weight: 900;
       font-size: 32px;
       line-height: 37.5px;
-      color: ${cores.branco};
+      color: ${colors.white};
       z-index: 1;
     }
   }

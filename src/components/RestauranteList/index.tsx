@@ -1,9 +1,10 @@
 import { Restaurante } from '../../pages/Home'
 import Restaurant from '../Restaurante'
-import { List } from './styles'
+import * as S from './styles'
 
 export type Props = {
   restaurantes: Restaurante[]
+  isLoading: boolean
 }
 
 const RestaurantList = ({ restaurantes }: Props) => {
@@ -19,7 +20,7 @@ const RestaurantList = ({ restaurantes }: Props) => {
   }
 
   return (
-    <List>
+    <S.List>
       {restaurantes.map((restaurante) => (
         <Restaurant
           key={restaurante.id}
@@ -31,7 +32,7 @@ const RestaurantList = ({ restaurantes }: Props) => {
           infos={getRestauranteTags(restaurante)}
         />
       ))}
-    </List>
+    </S.List>
   )
 }
 

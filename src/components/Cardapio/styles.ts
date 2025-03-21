@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles/stylesGlobal'
+import { breakpoints, colors } from '../../styles/stylesGlobal'
 
 export const CardCardapio = styled.div`
   width: 320px;
   height: 325px;
   padding: 8px;
-  background-color: ${cores.rosa};
-  color: ${cores.beje};
+  background-color: ${colors.pink};
+  color: ${colors.beije};
   display: flex;
   flex-direction: column;
   position: relative;
@@ -30,13 +30,13 @@ export const CardCardapio = styled.div`
   p {
     font-size: 14px;
     margin-bottom: 8px;
-    color: ${cores.beje};
+    color: ${colors.beije};
   }
 
   button {
-    color: ${cores.beje};
-    background-color: ${cores.beje};
-    color: ${cores.rosa};
+    color: ${colors.beije};
+    background-color: ${colors.beije};
+    color: ${colors.pink};
     border: none;
     font-size: 14px;
     font-weight: 700;
@@ -83,12 +83,13 @@ export const ModalContent = styled.div`
   height: 490px;
   margin-top: 490px;
   z-index: 1;
+  margin-bottom: 300px;
 
   > div {
     display: flex;
     padding: 32px;
-    background-color: ${cores.rosa};
-    color: ${cores.beje};
+    background-color: ${colors.pink};
+    color: ${colors.beije};
 
     > img {
       width: 280px;
@@ -123,12 +124,14 @@ export const ModalContent = styled.div`
 
       button {
         border: none;
-        padding: 4px 7px;
+        padding: 4px 2px;
         font-size: 14px;
         font-weight: 700;
-        background-color: ${cores.beje};
-        color: ${cores.rosa};
+        background-color: ${colors.beije};
+        color: ${colors.pink};
         margin-left: 24px;
+        border-radius: 8px;
+        width: 33%;
       }
     }
   }

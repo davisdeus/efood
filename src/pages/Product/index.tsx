@@ -1,16 +1,19 @@
 import { useParams } from 'react-router-dom'
 import { Header2 } from '../../components/Headers/indexHeader'
-import Hero from '../../components/Hero'
 import CardapioList from '../../components/CardapioList'
 import Footer from '../../components/Footer'
 import { useGetRestauranteSelectedQuery } from '../../servisces/api'
+import Loader from '../../components/Loader'
 
+type RestaurantParams = {
+  id: string
+}
 const Product = () => {
-  const { id } = useParams()
-  const { data: restaurant } = useGetRestauranteSelectedQuery(id!)
+  const { id } = useParams() as RestaurantParams
+  const { data: restaurant } = useGetRestauranteSelectedQuery(id)
 
   if (!restaurant) {
-    return <h4>Caregando...</h4>
+    return <Loader />
   }
 
   return (

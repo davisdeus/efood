@@ -1,15 +1,15 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
-export const cores = {
-  rosaSalmao: '#fde1e1',
-  rosa: '#E66767',
-  rosaClaro: '#ffcdcd',
-  amarelo: '#FFB930',
-  branco: '#ffffff',
-  cinza: '#A3A3A3',
-  beje: '#FFEBD9',
-  preto: '#000',
-  Seashell: '#FFF8F2',
+export const colors = {
+  salmonpink: '#fde1e1',
+  pink: '#E66767',
+  lightpink: '#ffcdcd',
+  yellow: '#FFB930',
+  white: '#ffffff',
+  gray: '#A3A3A3',
+  beije: '#FFEBD9',
+  black: '#000',
+  turquoise: '#FFF8F2',
 }
 
 export const breakpoints = {
@@ -27,13 +27,13 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
   body {
-    background-color: ${cores.Seashell};
+    background-color: ${colors.turquoise};
   }
 
   .maxContainer {
     max-width: 1366px;
     height: 2148px;
-    background-color: ${cores.Seashell};
+    background-color: ${colors.turquoise};
     margin: 0 auto;
 
   }
@@ -45,7 +45,7 @@ export const GlobalStyle = createGlobalStyle`
 `
 export const HeaderBar2 = styled.header`
   width: 1366px;
-  background-color: ${cores.beje};
+  background-color: ${colors.beije};
 
   .containerHeader {
     display: flex;
@@ -60,7 +60,7 @@ export const HeaderBar2 = styled.header`
   }
 
   a {
-    color: ${cores.rosa};
+    color: ${colors.pink};
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;

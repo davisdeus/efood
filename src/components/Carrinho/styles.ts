@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles/stylesGlobal'
+import { colors } from '../../styles/stylesGlobal'
 import lixeira from '../../assets/emages/lixeira-de-reciclagem 1.png'
 
 export const CarrinhoContainer = styled.div`
@@ -22,23 +22,31 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${cores.preto};
+  background-color: ${colors.black};
   opacity: 0.7;
 `
 export const Sidebar = styled.aside`
-  background-color: ${cores.rosa};
+  background-color: ${colors.pink};
   z-index: 1;
   padding: 32px 8px 0 8px;
   max-width: 344px;
   width: 100%;
+
+  .empty-text {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: bold;
+    color: ${colors.lightpink};
+    text-align: center;
+  }
 `
 export const CarrinhoItem = styled.li`
   position: relative;
   display: flex;
   padding: 8px 0;
-  background-color: ${cores.Seashell};
+  background-color: ${colors.turquoise};
   height: 100px;
-  color: ${cores.rosa};
+  color: ${colors.pink};
   margin-bottom: 16px;
 
   img {
@@ -76,13 +84,13 @@ export const CarrinhoContaine = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
-    color: ${cores.beje};
+    color: ${colors.beije};
   }
   button {
     max-width: 344px;
     height: 24px;
-    color: ${cores.rosa};
-    background-color: ${cores.beje};
+    color: ${colors.pink};
+    background-color: ${colors.beije};
     border: none;
     width: 100%;
     margin-top: 16px;

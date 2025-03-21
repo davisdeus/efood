@@ -1,15 +1,15 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles/stylesGlobal'
+import { breakpoints, colors } from '../../styles/stylesGlobal'
 import { Link } from 'react-router-dom'
 
 export const CardSection = styled.section`
-  border: 1px solid ${cores.rosa};
+  border: 1px solid ${colors.pink};
   max-width: 472px;
   max-height: 400px;
   width: 100%;
   font-size: 14px;
   overflow: hidden;
-  background-color: ${cores.branco};
+  background-color: ${colors.white};
   position: relative;
 
   @media (max-width: ${breakpoints.desktop}) {
@@ -104,8 +104,8 @@ export const Infos = styled.div`
 `
 
 export const BtnLink = styled(Link)`
-  background-color: ${cores.rosa};
-  color: ${cores.branco};
+  background-color: ${colors.pink};
+  color: ${colors.white};
   text-decoration: none;
   padding: 4px 6px;
   font-weight: bold;

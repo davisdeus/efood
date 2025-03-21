@@ -34,9 +34,12 @@ const cartSlice = createSlice({
     excluir: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id !== action.payload)
     },
+    limpar: (state) => {
+      state.items = []
+    },
   },
 })
 
-export const { addicionar, abrir, fechar, excluir } = cartSlice.actions
+export const { addicionar, abrir, fechar, excluir, limpar } = cartSlice.actions
 
 export default cartSlice.reducer
