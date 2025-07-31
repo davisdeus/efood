@@ -103,9 +103,9 @@ const Checkout = ({ onClose }: { onClose: () => void }) => {
             },
           },
         },
-        produtos: items.map((items) => ({
-          id: items.id,
-          price: items.preco,
+        produtos: items.map((item) => ({
+          id: item.id,
+          price: item.preco,
         })),
       })
     },
@@ -137,12 +137,7 @@ const Checkout = ({ onClose }: { onClose: () => void }) => {
       !form.errors.endereco &&
       !form.errors.cidade &&
       !form.errors.cep &&
-      !form.errors.numero &&
-      form.errors.nome !== '' &&
-      form.errors.endereco !== '' &&
-      form.errors.cidade !== '' &&
-      form.errors.cep !== '' &&
-      form.errors.numero !== ''
+      !form.errors.numero
 
     if (validaEntrega) {
       setPagarCartao(true)
@@ -353,9 +348,9 @@ const Checkout = ({ onClose }: { onClose: () => void }) => {
                       value={form.values.numeroCartao}
                       onChange={form.handleChange}
                       onBlur={form.handleBlur}
-                      mask="9999 9999 9999 9999"
+                      mask="9999-9999-9999-9999"
                       required
-                      className={mensageError('numeroCartão') ? 'error' : ''}
+                      className={mensageError('numeroCartao') ? 'error' : ''}
                     />
                   </S.GrupoInput>
                   <S.GrupoInput>
@@ -397,7 +392,7 @@ const Checkout = ({ onClose }: { onClose: () => void }) => {
                       value={form.values.anoVencimento}
                       onChange={form.handleChange}
                       onBlur={form.handleBlur}
-                      mask="9999"
+                      mask="99"
                       required
                       className={mensageError('anoVencimento') ? 'error' : ''}
                     />

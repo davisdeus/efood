@@ -1,9 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { Restaurante } from '../pages/Home'
 
-type RespostaCompra = {
-  idPedido: string
-}
 type Produto = {
   id: number
   price: number
@@ -32,6 +29,10 @@ type ComprarProduto = {
       }
     }
   }
+}
+
+type RespostaCompra = {
+  idPedido: string
 }
 
 const api = createApi({
